@@ -1,0 +1,119 @@
+/* ==========================================
+   全体のリセット & 基本設定
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: #f5f5f5; /* 画面外の背景 */
+  color: #fff; /* 文字色はすべて白 */
+
+  /* スマホサイズを基準に中央配置 */
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #353535; /* サイト全体の背景（濃いグレー） */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   上部のタイトルバー
+   ========================================== */
+.page-title {
+  background-color: #9e372a; /* トップページと合わせた赤錆色 */
+  text-align: center;
+  padding: 24px 0;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================
+   メインコンテンツエリア
+   ========================================== */
+.content-container {
+  padding: 60px 35px 40px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.icon-box {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.icon-box img {
+  width: 120px; /* アイコンの大きさを調整 */
+  height: auto;
+  display: inline-block;
+}
+
+.section p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 70px;
+  text-align: justify; /* 両端を綺麗に揃える */
+}
+
+/* ==========================================
+   下部のナビゲーションボタン
+   ========================================== */
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto; /* コンテンツが少なくても最下部に固定 */
+  padding-top: 40px;
+}
+
+.nav-btn {
+  background-color: #9e372a;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 8px 20px;
+  border-radius: 20px; /* 丸みをつけてカプセル型に */
+  transition: opacity 0.2s ease;
+}
+
+.nav-btn:hover {
+  opacity: 0.8; /* マウスを乗せたときに少し透明にする効果 */
+}
+
+/* ==========================================
+   PCサイズ（画面幅768px以上）の設定
+   ========================================== */
+@media (min-width: 768px) {
+  body {
+    max-width: 960px; /* トップページのPC幅と統一 */
+  }
+
+  .content-container {
+    padding: 80px 150px 60px; /* PCでは左右の余白を広くして読みやすく */
+  }
+
+  .section p {
+    font-size: 16px; /* PC用に文字サイズを少し大きく */
+  }
+
+  .nav-btn {
+    font-size: 15px;
+    padding: 10px 30px;
+  }
+}

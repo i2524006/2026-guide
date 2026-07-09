@@ -1,0 +1,326 @@
+/* ==========================================
+   全体のリセット & 基本設定
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: max-width 0.3s ease;
+}
+
+/* ==========================================
+   ヘッダー（ハンバーガーメニュー）
+   ========================================== */
+header {
+  background-color: #3e3e3e;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+header li {
+  list-style: none;
+}
+
+header a {
+  display: block;
+  width: 35px;
+  height: 24px;
+  text-indent: -9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+header a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #9e372a;
+  box-shadow:
+    0 10px 0#9e372a,
+    0 20px 0 #9e372a;
+}
+
+/* ==========================================
+   メインエリア（タイトル & グレーボックス）
+   ========================================== */
+
+.main {
+  /* ▼ 背景画像の設定を追加 */
+  background-image: url("開き.jpg");
+  background-size: cover; /* 横縦比を維持したままエリア全体を覆う */
+  background-position: center; /* 画像の中心を基準に配置 */
+  background-repeat: no-repeat; /* 画像の繰り返しを禁止 */
+
+  /* 既存のスタイル */
+  background-color: #fff; /* 画像が読み込めないときのフォールバック */
+  position: relative;
+  padding-top: 300px;
+  padding-bottom: 400px;
+  text-align: center;
+}
+.main h1 {
+  font-size: 36px;
+  font-weight: bold;
+  padding-top: 280px;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================
+   詳細エリア（映画館の魅力）
+   ========================================== */
+.detal {
+  background-color: #353535;
+}
+
+.detal h2 {
+  background-color: #9e372a;
+  color: #fff;
+  margin: 0;
+  padding: 50px 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+}
+
+.detal p {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.8;
+  margin: 50px auto;
+  padding: 30px 25px;
+  text-align: center;
+}
+
+.detal::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 180px;
+  background-image: url("メイン2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* ==========================================
+   メニューエリア（準備・マナー・おすすめ）
+   ========================================== */
+.menu {
+  background-color: #353535;
+  padding: 100px 50px 100px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.menu li:last-child {
+  margin-bottom: 0;
+}
+
+.menu li a {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+}
+
+.menu li a::before {
+  content: "";
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #555;
+  flex-shrink: 0;
+}
+
+/* 1. 準備 */
+.menu li:nth-child(1) a::before {
+  background-image: url("https://placehold.co/150/ccc/333?text=preparation");
+}
+
+/* 2. マナー */
+.menu li:nth-child(2) a {
+  flex-direction: row-reverse;
+}
+.menu li:nth-child(2) a::before {
+  background-image: url("https://placehold.co/150/ccc/333?text=manners");
+}
+
+/* 3. おすすめ */
+.menu li:nth-child(3) a::before {
+  background-image: url("https://placehold.co/150/ccc/333?text=recommend");
+}
+
+/* ==========================================
+   フッター
+   ========================================== */
+footer {
+  background-color: #9e372a;
+  height: 150px;
+}
+
+/* ==========================================
+   PCサイズ（画面幅768px以上）の設定
+   ========================================== */
+@media (min-width: 768px) {
+  body {
+    max-width: 960px;
+  }
+
+  .main {
+    padding-top: 24px;
+  }
+  .main::before {
+    height: 160px;
+    width: 40%;
+  }
+  .main::after {
+    top: 100px;
+    height: 160px;
+    width: 40%;
+  }
+
+  .detal p {
+    font-size: 15px;
+    padding: 40px 100px;
+  }
+  .detal::after {
+    height: 350px;
+  }
+
+  .menu ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  .menu li {
+    margin-bottom: 0;
+  }
+
+  .menu li a {
+    flex-direction: column !important;
+    gap: 15px;
+    font-size: 20px;
+  }
+}
+/* ==========================================
+   ポップアップメニュー（追加分）
+   ========================================== */
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px; /* bodyの初期max-widthに合わせる */
+  height: 100%;
+  background-color: #fff; /* 画像のような白い背景 */
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* 初期状態は非表示（透明） */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* メニュー表示用のクラス（JSで付け外しする） */
+.overlay-menu.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 閉じるボタン（左上の赤丸に白の×） */
+.menu-close {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #9e372a;
+  color: #fff;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* ナビゲーションの配置 */
+.overlay-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* ボタン同士の縦の隙間 */
+  align-items: center;
+}
+
+/* 各ボタンのスタイル（赤背景・強めの角丸・白文字） */
+.overlay-nav li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px; /* ボタンの横幅 */
+  height: 80px; /* ボタンの縦幅 */
+  background-color: #9e372a;
+  color: #fff;
+  text-decoration: none;
+  font-size: 26px;
+  font-weight: bold;
+  border-radius: 25px; /* 画像のようなしっかりとした角丸 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s;
+}
+
+/* ボタンにマウスを乗せたときのふわっとした変化 */
+.overlay-nav li a:hover {
+  background-color: #b84335;
+}
+
+/* PCサイズ（画面幅768px以上）の時のメニュー幅調整 */
+@media (min-width: 768px) {
+  .overlay-menu {
+    max-width: 960px; /* PC時のbodyの幅に合わせる */
+  }
+}

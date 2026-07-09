@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>初めての映画鑑賞</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+<!-- 変更後 -->
+<header>
+  <a href="#" id="menu-open">menu</a>
+</header>
+
+    <div class="main">
+      <h1>初めての映画鑑賞</h1>
+    </div>
+
+    <div class="detal">
+      <h2>映画館の魅力</h2>
+      <p>
+        今の時代、サブスクコンテンツが発展し、家で映画を観る機会が多くなった。
+        <br />
+        <br />
+        けれど、このご時世だからこそ映画館に足を運んでみてほしい。
+        <br />
+        家では体験することができない大迫力な映像と包み込まれるような音響。
+        <br />
+        <br />
+        観終わった後、きっと忘れられない思い出になるだろう。
+        <br />
+        映画館自体が初めての人も、久しぶりに足を運ぶ人も、このサイトで映画館の魅力を知って是非新たな映画の世界に飛び込んでくれたらとても嬉しい。
+      </p>
+    </div>
+
+    <div class="menu">
+      <ul>
+        <li><a href="preparetion.html">準備</a></li>
+        <li><a href="manner.html">マナー</a></li>
+        <li><a href="recommend.html">おすすめ</a></li>
+      </ul>
+    </div>
+
+    <footer></footer>
+
+
+
+    <!-- ▼ ここから追加 ▼ -->
+    <!-- ポップアップメニュー画面 -->
+    <div class="overlay-menu" id="overlay-menu">
+      <!-- 左上の閉じるボタン（赤丸に白の×） -->
+      <button class="menu-close" id="menu-close">×</button>
+
+      <!-- メニューのボタンリンク -->
+      <nav class="overlay-nav">
+        <ul>
+          <li><a href="preparetion.html">準備</a></li>
+          <li><a href="manner.html">マナー</a></li>
+          <li><a href="recommend.html">おすすめ</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- メニューを開閉するためのJavaScript -->
+    <script>
+      const menuOpen = document.getElementById('menu-open');
+      const menuClose = document.getElementById('menu-close');
+      const overlayMenu = document.getElementById('overlay-menu');
+
+      // menuバー（三本線）をクリックしたとき、メニューを開く
+      menuOpen.addEventListener('click', function(e) {
+        e.preventDefault(); // #によるページ最上部へのスクロールを防止
+        overlayMenu.classList.add('is-active');
+      });
+
+      // 「×」ボタンをクリックしたとき、メニューを閉じる
+      menuClose.addEventListener('click', function() {
+        overlayMenu.classList.remove('is-active');
+      });
+
+
+    </script>
+    <!-- ▲ ここまで追加 ▲ -->
+
+
+
+  </body>
+</html>
+
+
+  </body>
+</html>

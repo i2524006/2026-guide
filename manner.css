@@ -1,0 +1,171 @@
+/* ==========================================
+   全体のリセット & 基本設定
+   ========================================== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  background-color: #f5f5f5;
+  color: #fff;
+
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: #353535; /* 背景は濃いグレー */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   上部のタイトルバー
+   ========================================== */
+.page-title {
+  background-color: #9e372a;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.page-title h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: normal;
+  letter-spacing: 0.1em;
+}
+
+/* ==========================================
+   メインコンテンツエリア
+   ========================================== */
+.content-container {
+  padding: 40px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 35px; /* 各マナー同士の隙間 */
+}
+
+/* マナー項目の外枠 */
+.manner-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+/* 💡ここがポイント！偶数番目(2つ目、4つ目)の項目だけ、左右を自動で反転させます */
+.manner-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* イラストが入る丸枠 */
+.icon-box {
+  width: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-box img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+}
+
+/* グレーのテキストボックス */
+.text-box {
+  background-color: #d9d9d9; /* デザイン案通りの薄いグレー */
+  color: #000; /* 文字色は黒 */
+  width: 60%;
+  padding: 50px 12px;
+  margin-top: 60px;
+  text-align: center;
+  min-height: 120px; /* ボックスの大きさをある程度揃える */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-box h3 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.text-box p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   下部のナビゲーションボタン
+   ========================================== */
+.bottom-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.nav-btn {
+  background-color: #9e372a;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: opacity 0.2s ease;
+}
+
+.nav-btn:hover {
+  opacity: 0.8;
+}
+
+/* ==========================================
+   PCサイズ（画面幅768px以上）の設定
+   ========================================== */
+@media (min-width: 768px) {
+  body {
+    max-width: 960px;
+  }
+
+  .content-container {
+    padding: 60px 120px;
+    gap: 50px;
+  }
+
+  .manner-item {
+    gap: 50px;
+  }
+
+  .icon-box {
+    width: 25%;
+  }
+  .icon-box img {
+    max-width: 130px;
+  }
+
+  .text-box {
+    width: 70%;
+    padding: 25px 40px;
+  }
+
+  .text-box h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .text-box p {
+    font-size: 14px;
+  }
+
+  .nav-btn {
+    font-size: 15px;
+    padding: 10px 30px;
+  }
+}
