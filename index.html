@@ -8,18 +8,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
-<!-- 変更後 -->
-<header>
-  <a href="#" id="menu-open">menu</a>
-</header>
+    <!-- 変更後 -->
+    <header>
+      <a href="#" id="menu-open">menu</a>
+    </header>
 
     <div class="main">
       <h1>初めての映画鑑賞</h1>
     </div>
 
     <div class="detal">
-      <h2>映画館の魅力</h2>
+      <h2>
+        映画館の魅力
+        <span>~the magic of movies~</span>
+      </h2>
       <p>
         今の時代、サブスクコンテンツが発展し、家で映画を観る機会が多くなった。
         <br />
@@ -31,7 +33,7 @@
         <br />
         観終わった後、きっと忘れられない思い出になるだろう。
         <br />
-        映画館自体が初めての人も、久しぶりに足を運ぶ人も、このサイトで映画館の魅力を知って是非新たな映画の世界に飛び込んでくれたらとても嬉しい。
+        映画館自体が初めての人も、久しぶりに足を運ぶ人も、このサイトで映画館の魅力を知って新たな映画の世界に飛び込んでくれたらとても嬉しい。
       </p>
     </div>
 
@@ -43,15 +45,16 @@
       </ul>
     </div>
 
-    <footer></footer>
-
-
+    <!-- 変更後 -->
+    <footer>
+      <p>※このサイトは課題用です</p>
+    </footer>
 
     <!-- ▼ ここから追加 ▼ -->
     <!-- ポップアップメニュー画面 -->
     <div class="overlay-menu" id="overlay-menu">
       <!-- 左上の閉じるボタン（赤丸に白の×） -->
-      <button class="menu-close" id="menu-close">×</button>
+      <button class="menu-close" id="menu-close"></button>
 
       <!-- メニューのボタンリンク -->
       <nav class="overlay-nav">
@@ -65,30 +68,21 @@
 
     <!-- メニューを開閉するためのJavaScript -->
     <script>
-      const menuOpen = document.getElementById('menu-open');
-      const menuClose = document.getElementById('menu-close');
-      const overlayMenu = document.getElementById('overlay-menu');
+      const menuOpen = document.getElementById("menu-open");
+      const menuClose = document.getElementById("menu-close");
+      const overlayMenu = document.getElementById("overlay-menu");
 
       // menuバー（三本線）をクリックしたとき、メニューを開く
-      menuOpen.addEventListener('click', function(e) {
+      menuOpen.addEventListener("click", function (e) {
         e.preventDefault(); // #によるページ最上部へのスクロールを防止
-        overlayMenu.classList.add('is-active');
+        overlayMenu.classList.add("is-active");
       });
 
       // 「×」ボタンをクリックしたとき、メニューを閉じる
-      menuClose.addEventListener('click', function() {
-        overlayMenu.classList.remove('is-active');
+      menuClose.addEventListener("click", function () {
+        overlayMenu.classList.remove("is-active");
       });
-
-
     </script>
     <!-- ▲ ここまで追加 ▲ -->
-
-
-
-  </body>
-</html>
-
-
   </body>
 </html>

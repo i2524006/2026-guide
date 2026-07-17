@@ -1,6 +1,3 @@
-/* ==========================================
-   全体のリセット & 基本設定
-   ========================================== */
 * {
   box-sizing: border-box;
 }
@@ -53,8 +50,8 @@ header a::before {
   height: 4px;
   background-color: #9e372a;
   box-shadow:
-    0 10px 0#9e372a,
-    0 20px 0 #9e372a;
+    0 10px 0#b84335,
+    0 20px 0 #b84335;
 }
 
 /* ==========================================
@@ -63,7 +60,7 @@ header a::before {
 
 .main {
   /* ▼ 背景画像の設定を追加 */
-  background-image: url("開き.jpg");
+  background-image: url("main01.png");
   background-size: cover; /* 横縦比を維持したままエリア全体を覆う */
   background-position: center; /* 画像の中心を基準に配置 */
   background-repeat: no-repeat; /* 画像の繰り返しを禁止 */
@@ -71,18 +68,33 @@ header a::before {
   /* 既存のスタイル */
   background-color: #fff; /* 画像が読み込めないときのフォールバック */
   position: relative;
-  padding-top: 300px;
-  padding-bottom: 400px;
+  padding-top: 400px;
+  padding-bottom: 800px;
   text-align: center;
 }
 .main h1 {
   font-size: 36px;
   font-weight: bold;
-  padding-top: 280px;
   color: #fff;
   letter-spacing: 0.1em;
+
+  /* ▼ ここから追加・変更 ▼ */
+  background-color: rgba(0, 0, 0, 0.7); /* 不透明度70%の暗い帯（黒の透過） */
+  padding: 35px 0; /* 帯の上下のゆとり（お好みで調整） */
+  margin: 0;
+
+  /* 背景画像に対して上下中央に帯を配置する設定 */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  /* ▲ ここまで追加・変更 ▲ */
 }
 
+/* ==========================================
+   詳細エリア（映画館の魅力）
+   ========================================== */
 /* ==========================================
    詳細エリア（映画館の魅力）
    ========================================== */
@@ -101,12 +113,21 @@ header a::before {
   letter-spacing: 0.05em;
 }
 
+/* ▼ ここから追加 ▼ */
+.detal h2 span {
+  display: block; /* 改行して「映画館の魅力」の下に配置する */
+  font-size: 14px; /* サブタイトル用の小さめなサイズ */
+  margin-top: 10px; /* 上の日本語とのすき間 */
+  letter-spacing: 0.05em; /* 文字の横幅の間隔 */
+}
+
 .detal p {
   color: #fff;
-  font-size: 20px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 2.5; /* ★ 1.8 から 2.5 に変更（行間を広げる） */
+  letter-spacing: 0.08em; /* ★ 追加：文字と文字の間隔を少し広げて上品に */
   margin: 50px auto;
-  padding: 30px 25px;
+  padding: 50px 25px;
   text-align: center;
 }
 
@@ -115,7 +136,7 @@ header a::before {
   display: block;
   width: 100%;
   height: 180px;
-  background-image: url("メイン2.jpg");
+  background-image: url("main02.png");
   background-size: cover;
   background-position: center;
 }
@@ -150,7 +171,7 @@ header a::before {
   gap: 35px;
   color: #fff;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 18px;
   letter-spacing: 0.05em;
 }
 
@@ -163,11 +184,14 @@ header a::before {
   background-position: center;
   background-color: #555;
   flex-shrink: 0;
+  /* ▼ 既存のコード ▼ */
+  transition: opacity 0.3s ease; /* ホバー時のスムーズな変化のため */
+  /* ▲ 既存のコード ▲ */
 }
 
 /* 1. 準備 */
 .menu li:nth-child(1) a::before {
-  background-image: url("https://placehold.co/150/ccc/333?text=preparation");
+  background-image: url("manner.png");
 }
 
 /* 2. マナー */
@@ -175,13 +199,20 @@ header a::before {
   flex-direction: row-reverse;
 }
 .menu li:nth-child(2) a::before {
-  background-image: url("https://placehold.co/150/ccc/333?text=manners");
+  background-image: url("manner02.png");
 }
 
 /* 3. おすすめ */
 .menu li:nth-child(3) a::before {
-  background-image: url("https://placehold.co/150/ccc/333?text=recommend");
+  background-image: url("baruto02.png");
 }
+
+/* ▼ 既存のコード ▼ */
+/* ホバー時の不透明度変更 */
+.menu li a:hover::before {
+  opacity: 0.5; /* 不透明度を50%に変更 */
+}
+/* ▲ 既存のコード ▲ */
 
 /* ==========================================
    フッター
@@ -189,18 +220,36 @@ header a::before {
 footer {
   background-color: #9e372a;
   height: 150px;
+
+  display: flex;
+  justify-content: center; /* 横方向の真ん中に配置 */
+  align-items: flex-end; /* 縦方向の下側に配置 */
+  padding-bottom: 20px; /* 画面のギリギリにならないよう、下からの余白を取る */
+}
+
+footer p {
+  color: #fff; /* 文字色を白に */
+  margin: 0;
+  font-size: 14px; /* 注意書きなので少し小さめのサイズに */
+  letter-spacing: 0.05em; /* 読みやすいように文字間隔を少し空ける */
 }
 
 /* ==========================================
    PCサイズ（画面幅768px以上）の設定
    ========================================== */
-@media (min-width: 768px) {
+@media (min-width: 1401px) {
   body {
-    max-width: 960px;
+    max-width: 2560px;
   }
 
   .main {
-    padding-top: 24px;
+    /* ▼ ここを変更 ▼ */
+    padding-top: 0; /* スマホ用の余白をリセット */
+    padding-bottom: 0; /* スマホ用の余白をリセット */
+    height: 1300px; /* ★ここでお好みの縦幅に調整してください（数値を大きくすると広がります） */
+
+    /* ※もし画面の高さに合わせて可変させたい場合は、
+       height: 85vh; （画面の高さの85%）のように指定するのも今っぽくておすすめです */
   }
   .main::before {
     height: 160px;
@@ -208,13 +257,13 @@ footer {
   }
   .main::after {
     top: 100px;
-    height: 160px;
+    height: 180px;
     width: 40%;
   }
 
   .detal p {
     font-size: 15px;
-    padding: 40px 100px;
+    padding: 100px 15%;
   }
   .detal::after {
     height: 350px;
@@ -223,7 +272,7 @@ footer {
   .menu ul {
     display: flex;
     justify-content: space-around;
-    gap: 20px;
+    gap: 15px;
   }
 
   .menu li {
@@ -233,7 +282,7 @@ footer {
   .menu li a {
     flex-direction: column !important;
     gap: 15px;
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 /* ==========================================
@@ -245,9 +294,9 @@ footer {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 600px; /* bodyの初期max-widthに合わせる */
+  max-width: 1400px; /* bodyの初期max-widthに合わせる */
   height: 100%;
-  background-color: #fff; /* 画像のような白い背景 */
+  background-color: #555; /* 画像のような白い背景 */
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -257,8 +306,17 @@ footer {
   /* 初期状態は非表示（透明） */
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  /* ▼ ここから追加・変更 ▼ */
+  transition:
+    opacity 0.3s ease,
+    background-color 0.3s ease; /* 追加: background-colorの遷移も追加 */
 }
+
+/* メニュー全体へのホバー効果 (追加) */
+.overlay-menu:hover {
+  background-color: #555; /* ホバー時に背景色を少し暗くする */
+}
+/* ▲ ここまで追加・変更 ▲ */
 
 /* メニュー表示用のクラス（JSで付け外しする） */
 .overlay-menu.is-active {
@@ -283,7 +341,40 @@ footer {
   align-items: center;
   justify-content: center;
   line-height: 1;
+  /* ▼ ここから追加・変更 ▼ */
+  transition: background-color 0.3s ease; /* 追加: スムーズな遷移 */
 }
+
+/* 閉じるボタンのホバー効果 (追加) */
+.menu-close:hover {
+  background-color: #b84335; /* ホバー時の背景色 (overlay-navと同じ) */
+}
+
+/* ▼ ここから追加：CSSで綺麗な白い「×」を描画する ▼ */
+.menu-close::before,
+.menu-close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px; /* ×の線の長さ */
+  height: 3px; /* ×の線の太さ */
+  background-color: #fff; /* バツの色（白） */
+  border-radius: 2px; /* 線の両端を少し丸くして柔らかい印象に */
+}
+
+/* 1本目を45度傾ける */
+.menu-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* 2本目を逆方向に45度傾ける */
+.menu-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+/* ▲ ここまで追加 ▲ */
+
+/* ▲ ここまで追加・変更 ▲ */
 
 /* ナビゲーションの配置 */
 .overlay-nav ul {
@@ -319,8 +410,8 @@ footer {
 }
 
 /* PCサイズ（画面幅768px以上）の時のメニュー幅調整 */
-@media (min-width: 768px) {
+@media (min-width: 2000px) {
   .overlay-menu {
-    max-width: 960px; /* PC時のbodyの幅に合わせる */
+    max-width: 2560px; /* PC時のbodyの幅に合わせる */
   }
 }
